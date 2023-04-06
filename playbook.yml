@@ -1,0 +1,15 @@
+---
+- hosts: all
+  vars:
+    ci_build: true
+    openvpn_use_pregenerated_dh_params: true
+  roles:
+    - role: ansible-role-openvpn
+      clients:
+        - laptop
+        - phone
+      openvpn_sync_certs: true
+      manage_firewall_rules: false
+      openvpn_client_register_dns: false
+      openvpn_port: 14600
+      openvpn_server_hostname: "{{ lookup('env', 'SERVER_HOSTNAME') }}"
