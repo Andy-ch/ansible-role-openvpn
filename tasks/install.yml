@@ -1,6 +1,6 @@
 ---
 - name: Install EPEL for CentOS
-  package:
+  yum:
     name: "{{ epel_package_name }}"
     state: present
   when: ansible_distribution == "CentOS" or ansible_distribution=="Rocky"
