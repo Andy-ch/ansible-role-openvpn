@@ -1,4 +1,24 @@
 ---
+- name: List Yum repo files
+  find:
+    paths: /etc/yum.repos.d
+    patterns: 'CentOS-*'
+  register: repolist
+
+- name: Comment out mirrorlists
+  lineinfile:
+    path: '{{ item.path }}'
+    regexp: '^(mirrorlist.*)$'
+    line: '#\1'
+  loop: '{{ repolist.files }}'
+
+- name: Replace commented baseurl
+  lineinfile:
+    path: '{{ item.path }}'
+    regexp: '^#baseurl=http://mirror.centos.org(.*)$'
+    line: 'baseurl=http://vault.centos.org\1'
+  loop: '{{ repolist.files }}'
+
 - name: Install EPEL for CentOS
   package:
     name: "{{ epel_package_name }}"
