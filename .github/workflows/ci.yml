@@ -177,6 +177,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Initialize Packer
-        run: init .
+        run: packer init .
       - name: Build AMI
-        run: build .
+        run: packer build .
