@@ -33,5 +33,6 @@ build {
     extra_arguments = [
       "--connection=ssh"
     ]
+    use_proxy = false
   }
 }
