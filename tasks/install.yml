@@ -21,6 +21,21 @@
     backrefs: yes
   loop: '{{ repolist.files }}'
 
+- debug:
+    var: ansible_distribution
+
+- name: Install EPEL for Amazon Linux 2
+  shell: amazon-linux-extras install epel
+  when: ansible_distribution == 'Amazon Linux 2'
+
+- name: List Yum repo files
+  find:
+    paths: /etc/yum.repos.d
+  register: repolist
+
+- debug:
+    var: repolist
+
 - name: Install EPEL for CentOS
   package:
     name: "{{ epel_package_name }}"
