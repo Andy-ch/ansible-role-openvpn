@@ -1,4 +1,7 @@
 ---
+- name: Wait for SSH connection
+  wait_for_connection:
+
 - name: Include vars for OpenVPN installation
   include_vars: "{{ item }}"
   with_first_found:
