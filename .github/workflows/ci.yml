@@ -165,7 +165,7 @@ jobs:
     needs:
       - build-centos
     container:
-      image: hashicorp/packer:1.8
+      image: andych/packer-ansible:1.8
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
