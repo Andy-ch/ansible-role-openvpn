@@ -13,11 +13,10 @@ source "amazon-ebs" "amazon-linux" {
   region        = "eu-west-1"
   source_ami_filter {
     filters = {
-      name                = "amazon/al2023-ami-2023*x86_64"
+      name                = "al2023-ami-2023.0.20230329.0-kernel-6.1-x86_64"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
-    most_recent = true
     owners      = ["137112412989"]
   }
   ssh_username = "ec2-user"
