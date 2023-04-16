@@ -31,7 +31,7 @@ build {
     playbook_file = "playbook.yml"
     user          = "ec2-user"
     extra_arguments = [
-      "--connection=paramiko"
+      "--connection=ssh"
     ]
   }
 }
