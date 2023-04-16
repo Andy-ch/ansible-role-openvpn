@@ -13,7 +13,7 @@ source "amazon-ebs" "amazon-linux" {
   region        = "eu-west-1"
   source_ami_filter {
     filters = {
-      name                = "al2023-ami-2023.0.20230329.0-kernel-6.1-x86_64"
+      name                = "amzn2-ami-hvm-2.0.20230404.1-x86_64-ebs"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
