@@ -170,9 +170,9 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         SERVER_HOSTNAME: ${{ secrets.SERVER_HOSTNAME }}
-      volumes:
-        - ${{ github.workspace }}:/project
-      options: -w/project
+#      volumes:
+#        - ${{ github.workspace }}:/project
+#      options: -w/project
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
