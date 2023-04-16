@@ -17,7 +17,7 @@ source "amazon-ebs" "amazon-linux" {
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
-    owners      = ["137112412989"]
+    owners = ["137112412989"]
   }
   ssh_username = "ec2-user"
 }
@@ -30,5 +30,8 @@ build {
   provisioner "ansible" {
     playbook_file = "playbook.yml"
     user          = "ec2-user"
+    extra_arguments = [
+      "--connection=paramiko"
+    ]
   }
 }
