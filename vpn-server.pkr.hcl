@@ -30,9 +30,5 @@ build {
   provisioner "ansible" {
     playbook_file = "playbook.yml"
     user          = "ec2-user"
-    extra_arguments = [
-      "--connection=ssh"
-    ]
-    use_proxy = false
   }
 }
