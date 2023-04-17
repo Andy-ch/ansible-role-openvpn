@@ -30,5 +30,6 @@ build {
   provisioner "ansible" {
     playbook_file = "playbook.yml"
     user          = "ec2-user"
+    use_proxy     = false
   }
 }
