@@ -1,25 +1,25 @@
 ---
-- name: List Yum repo files
-  find:
-    paths: /etc/yum.repos.d
-    patterns: 'CentOS-*'
-  register: repolist
-
-- name: Comment out mirrorlists
-  lineinfile:
-    path: '{{ item.path }}'
-    regexp: '^(mirrorlist.*)$'
-    line: '#\1'
-    backrefs: yes
-  loop: '{{ repolist.files }}'
-
-- name: Replace commented baseurl
-  lineinfile:
-    path: '{{ item.path }}'
-    regexp: '^#baseurl=http://mirror.centos.org(.*)$'
-    line: 'baseurl=http://vault.centos.org\1'
-    backrefs: yes
-  loop: '{{ repolist.files }}'
+#- name: List Yum repo files
+#  find:
+#    paths: /etc/yum.repos.d
+#    patterns: 'CentOS-*'
+#  register: repolist
+#
+#- name: Comment out mirrorlists
+#  lineinfile:
+#    path: '{{ item.path }}'
+#    regexp: '^(mirrorlist.*)$'
+#    line: '#\1'
+#    backrefs: yes
+#  loop: '{{ repolist.files }}'
+#
+#- name: Replace commented baseurl
+#  lineinfile:
+#    path: '{{ item.path }}'
+#    regexp: '^#baseurl=http://mirror.centos.org(.*)$'
+#    line: 'baseurl=http://vault.centos.org\1'
+#    backrefs: yes
+#  loop: '{{ repolist.files }}'
 
 - name: Install EPEL for Amazon Linux 2
   shell: amazon-linux-extras install epel
