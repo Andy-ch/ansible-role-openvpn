@@ -32,7 +32,9 @@ build {
     user          = "ec2-user"
     use_proxy     = false
     extra_arguments = [
-      "-vvv"
+      "-vvv",
+      "-e",
+      "ansible_python_interpreter=/usr/bin/python3"
     ]
   }
 }
