@@ -31,5 +31,8 @@ build {
     playbook_file = "playbook.yml"
     user          = "ec2-user"
     use_proxy     = false
+    extra_arguments = [
+      "-vvv"
+    ]
   }
 }
