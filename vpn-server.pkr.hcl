@@ -26,6 +26,7 @@ build {
     use_proxy     = false
     extra_arguments = [
       "-vvv",
+      "--connection=paramiko",
       "-e",
       "ansible_python_interpreter=/usr/bin/python3"
     ]
