@@ -161,6 +161,7 @@ jobs:
 
   build-ami:
     runs-on: ubuntu-20.04
+    timeout-minutes: 60
     name: packer
     needs:
       - build-centos

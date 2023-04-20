@@ -8,18 +8,11 @@ packer {
 }
 
 source "amazon-ebs" "amazon-linux" {
-  ami_name      = "amazon-linux"
+  ami_name      = "vpn-rkn"
   instance_type = "t2.micro"
   region        = "eu-west-1"
-  source_ami_filter {
-    filters = {
-      name                = "amzn2-ami-hvm-2.0.20230404.1-x86_64-ebs"
-      root-device-type    = "ebs"
-      virtualization-type = "hvm"
-    }
-    owners = ["137112412989"]
-  }
-  ssh_username = "ec2-user"
+  source_ami    = "ami-022daa15b37b5e55d"
+  ssh_username  = "ec2-user"
 }
 
 build {
